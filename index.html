@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm Thời Gian</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: black;
+      font-family: monospace;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #timer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2vh 4vw;       /* giảm khoảng cách một chút */
+      width: 100vw;
+      max-width: 100vw;
+      padding: 2vh;
+      box-sizing: border-box;
+    }
+
+    .block {
+      background-color: #ffc0cb55;
+      border-radius: 3vh;      /* bo góc nhỏ hơn */
+      padding: 2vh 1.5vw;      /* giảm padding */
+      text-align: center;
+      font-size: 6vh;          /* số nhỏ hơn một chút */
+      font-weight: bold;
+    }
+
+    .label {
+      display: block;
+      font-size: 2.3vh;        /* chữ nhỏ hơn chút */
+      margin-top: 0.8vh;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer"></div>
+
+  <script>
+    const startTime = new Date("2025-07-30T20:00:00");
+
+    function updateTime() {
+      const now = new Date();
+      const diff = now - startTime;
+
+      const seconds = Math.floor(diff / 1000);
+      const minutes = Math.floor(seconds / 60);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+
+      const years = Math.floor(days / 365);
+      const months = Math.floor((days % 365) / 30);
+      const d = (days % 365) % 30;
+      const h = hours % 24;
+      const m = minutes % 60;
+      const s = seconds % 60;
+
+      const format = n => String(n).padStart(2, "0");
+
+      document.getElementById("timer").innerHTML = `
+        <div class="block">${format(years)}<span class="label">Năm</span></div>
+        <div></div>
+        <div></div>
+
+        <div class="block">${format(months)}<span class="label">tháng</span></div>
+        <div class="block">${format(d)}<span class="label">ngày</span></div>
+        <div></div>
+
+        <div class="block">${format(h)}<span class="label">giờ</span></div>
+        <div class="block">${format(m)}<span class="label">phút</span></div>
+        <div class="block">${format(s)}<span class="label">giây</span></div>
+      `;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
