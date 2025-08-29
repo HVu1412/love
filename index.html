@@ -2,9 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Đếm Thời Gian</title>
+  <title>Love</title>
   <style>
     html, body {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;    
       margin: 0;
       padding: 0;
       background: white;
@@ -21,7 +25,7 @@
     #timer {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 2vh 4vw;       /* giảm khoảng cách một chút */
+      grid-gap: 2vh 4vw;
       width: 100vw;
       max-width: 100vw;
       padding: 2vh;
@@ -30,16 +34,16 @@
 
     .block {
       background-color: #ffc0cb55;
-      border-radius: 3vh;      /* bo góc nhỏ hơn */
-      padding: 2vh 1.5vw;      /* giảm padding */
+      border-radius: 3vh;
+      padding: 2vh 1.5vw;
       text-align: center;
-      font-size: 6vh;          /* số nhỏ hơn một chút */
+      font-size: 6vh;
       font-weight: bold;
     }
 
     .label {
       display: block;
-      font-size: 2.3vh;        /* chữ nhỏ hơn chút */
+      font-size: 2.3vh;
       margin-top: 0.8vh;
       font-weight: normal;
     }
@@ -53,19 +57,36 @@
 
     function updateTime() {
       const now = new Date();
-      const diff = now - startTime;
+      let years = now.getFullYear() - startTime.getFullYear();
+      let months = now.getMonth() - startTime.getMonth();
+      let days = now.getDate() - startTime.getDate();
+      let hours = now.getHours() - startTime.getHours();
+      let minutes = now.getMinutes() - startTime.getMinutes();
+      let seconds = now.getSeconds() - startTime.getSeconds();
 
-      const seconds = Math.floor(diff / 1000);
-      const minutes = Math.floor(seconds / 60);
-      const hours = Math.floor(minutes / 60);
-      const days = Math.floor(hours / 24);
-
-      const years = Math.floor(days / 365);
-      const months = Math.floor((days % 365) / 30);
-      const d = (days % 365) % 30;
-      const h = hours % 24;
-      const m = minutes % 60;
-      const s = seconds % 60;
+      // Xử lý âm cho ngày/tháng/giờ/phút/giây
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+      if (days < 0) {
+        // Lấy số ngày của tháng trước
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+        months--;
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
 
       const format = n => String(n).padStart(2, "0");
 
@@ -75,12 +96,12 @@
         <div></div>
 
         <div class="block">${format(months)}<span class="label">tháng</span></div>
-        <div class="block">${format(d)}<span class="label">ngày</span></div>
+        <div class="block">${format(days)}<span class="label">ngày</span></div>
         <div></div>
 
-        <div class="block">${format(h)}<span class="label">giờ</span></div>
-        <div class="block">${format(m)}<span class="label">phút</span></div>
-        <div class="block">${format(s)}<span class="label">giây</span></div>
+        <div class="block">${format(hours)}<span class="label">giờ</span></div>
+        <div class="block">${format(minutes)}<span class="label">phút</span></div>
+        <div class="block">${format(seconds)}<span class="label">giây</span></div>
       `;
     }
 
