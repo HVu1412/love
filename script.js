@@ -1,0 +1,54 @@
+const startTime = new Date("2025-07-30T20:00:00");
+
+    function updateTime() {
+      const now = new Date();
+      let years = now.getFullYear() - startTime.getFullYear();
+      let months = now.getMonth() - startTime.getMonth();
+      let days = now.getDate() - startTime.getDate();
+      let hours = now.getHours() - startTime.getHours();
+      let minutes = now.getMinutes() - startTime.getMinutes();
+      let seconds = now.getSeconds() - startTime.getSeconds();
+
+      // Xử lý âm cho ngày/tháng/giờ/phút/giây
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+      if (days < 0) {
+        // Lấy số ngày của tháng trước
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+        months--;
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      const format = n => String(n).padStart(2, "0");
+
+      document.getElementById("timer").innerHTML = `
+        <div class="block">${format(years)}<span class="label">Năm</span></div>
+        <div></div>
+        <div></div>
+
+        <div class="block">${format(months)}<span class="label">tháng</span></div>
+        <div class="block">${format(days)}<span class="label">ngày</span></div>
+        <div></div>
+
+        <div class="block">${format(hours)}<span class="label">giờ</span></div>
+        <div class="block">${format(minutes)}<span class="label">phút</span></div>
+        <div class="block">${format(seconds)}<span class="label">giây</span></div>
+      `;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
