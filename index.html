@@ -6,7 +6,193 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="timer"></div>
+  <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1>🌕 Trung Thu Xa Nhau, Tim Vẫn Gần Bên Em 🌕</h1>
+            <p class="subtitle">Dành tặng người con gái anh yêu thương nhất</p>
+        </header>
+
+        <div class="moon-container">
+            <div class="moon" onclick="createHeart(event)"></div>
+            <p class="interactive-message">✨ Nhấn vào mặt trăng để gửi trái tim đến em ✨</p>
+        </div>
+
+        <div class="section">
+            <h2>💌 Lời Nhắn Từ Trái Tim Anh</h2>
+            <div class="love-message">
+                <p>Em yêu của anh,</p>
+                <p>Tết Trung Thu năm nay, anh và em lại xa nhau. Nhìn trăng tròn trên trời, anh lại nghĩ đến em nhiều hơn. Có bao giờ em nhìn lên bầu trời đêm và nghĩ rằng, cùng một lúc đó, anh cũng đang ngước nhìn lên và mong được ở bên em không?</p>
+                <p>Dù cách xa bao nhiêu cây số, dù phải chờ đợi bao lâu nữa, trái tim anh vẫn luôn hướng về em. Mỗi ngày trôi qua, anh lại thêm một lần nhớ em, thêm một lần mong được gặp em, được nắm tay em và nói rằng: "Em đợi lâu rồi nhỉ? Anh đây rồi."</p>
+            </div>
+        </div>
+
+        <div class="section">
+    <h2>📖 Nhật Ký Nhớ Em</h2>
+    <div class="count-love">
+        <p>"Thời gian trôi qua chính là minh chứng tình yêu của chúng ta."</p>
+        
+        <div class="timer-grid">
+            <div class="time-unit">
+                <span class="time-number" id="years">0</span>
+                <div class="time-label">Năm</div>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="months">0</span>
+                <div class="time-label">Tháng</div>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="days">0</span>
+                <div class="time-label">Ngày</div>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="hours">0</span>
+                <div class="time-label">Giờ</div>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="minutes">0</span>
+                <div class="time-label">Phút</div>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="seconds">0</span>
+                <div class="time-label">Giây</div>
+            </div>
+        </div>
+
+        <p class="start-date">💖 Bắt đầu từ: 20:00 30/07/2025 💖</p>
+        
+        <a href="https://hvu1412.github.io/iloveyou/" target="_blank">
+</a>
+    </div>
+</div>
+
+
+        <div class="section mooncake-section">
+            <h2>🥮 Cùng Nhau Ăn Bánh Trung Thu</h2>
+            <p style="margin-bottom: 20px;">Nhấn vào bánh để "chia sẻ" với anh nhé! 💝</p>
+            <div class="mooncakes">
+                <div class="mooncake" onclick="shareMooncake(1)"></div>
+                <div class="mooncake" onclick="shareMooncake(2)"></div>
+                <div class="mooncake" onclick="shareMooncake(3)"></div>
+                <div class="mooncake" onclick="shareMooncake(4)"></div>
+            </div>
+            <p id="mooncakeMessage" style="margin-top: 20px; font-style: italic; color: #ffd93d;"></p>
+        </div>
+
+        <div class="section">
+            <h2>🏮 Đèn Lồng Ước Nguyện</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Nhấn vào từng chiếc đèn để xem ước nguyện của anh...</p>
+            <div class="lantern-game">
+                <div class="lantern">
+                    <div class="lantern-message">Được nắm tay em</div>
+                </div>
+                <div class="lantern">
+                    <div class="lantern-message">Được ôm em thật chặt</div>
+                </div>
+                <div class="lantern">
+                    <div class="lantern-message">Được nhìn em cười</div>
+                </div>
+                <div class="lantern">
+                    <div class="lantern-message">Được ở bên em mãi</div>
+                </div>
+                <div class="lantern">
+                    <div class="lantern-message">Được yêu em trọn đời</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌟 Những Điều Anh Mơ Ước Khi Gặp Em</h2>
+            <div class="dreams-grid">
+                <div class="dream-card">
+                    <div class="dream-icon">🤝</div>
+                    <h3>Nắm Tay Em</h3>
+                    <p>Cảm nhận hơi ấm từ bàn tay em, biết rằng em thực sự đang ở đây, bên anh</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">🫂</div>
+                    <h3>Ôm Em Thật Chặt</h3>
+                    <p>Ôm em trong vòng tay và không muốn buông ra, để em cảm nhận được tình yêu của anh</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">👀</div>
+                    <h3>Nhìn Vào Mắt Em</h3>
+                    <p>Nhìn sâu vào đôi mắt em và nói: "Em là điều tuyệt vời nhất đời anh"</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">🚶‍♂️</div>
+                    <h3>Đi Dạo Cùng Em</h3>
+                    <p>Dắt tay em đi khắp nơi, từ công viên đến phố cổ, tạo nên kỷ niệm đầu tiên</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">🍜</div>
+                    <h3>Ăn Uống Cùng Nhau</h3>
+                    <p>Dẫn em đi ăn những món em thích, xem em cười khi thưởng thức món ngon</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">📸</div>
+                    <h3>Chụp Hình Kỷ Niệm</h3>
+                    <p>Lưu lại từng khoảnh khắc bên nhau, để sau này nhìn lại và mỉm cười</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">😘</div>
+                    <h3>Ôm và...</h3>
+                    <p>Muốn hun em, hun tỷ tỷ cái</p>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-icon">💑</div>
+                    <h3>Chỉ Là Bên Em</h3>
+                    <p>Không cần làm gì cả, chỉ cần được ở bên em, đó đã là hạnh phúc rồi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💭 Những Khoảnh Khắc Anh Mơ Về</h2>
+            <div class="wishes-container">
+                <div class="wish-item">
+                    <strong>🌙 Cùng nhau ngắm trăng:</strong> Ngồi bên nhau trong đêm trung thu, anh sẽ ôm em vào lòng, cùng nhìn trăng tròn và kể cho em nghe về những đêm anh nhìn trăng và nghĩ về em.
+                </div>
+                <div class="wish-item">
+                    <strong>🎭 Đi chơi đêm rằm:</strong> Dắt tay em đi qua những con phố náo nhiệt với đèn lồng lung linh, mua cho em những món đồ chơi trung thu, xem em vui như một đứa trẻ.
+                </div>
+                <div class="wish-item">
+                    <strong>🍰 Cùng nhau làm bánh:</strong> Dù không khéo tay, nhưng anh muốn cùng em vào bếp, cùng làm bánh trung thu, cười đùa khi bột văng tứ tung, rồi cùng nhau thưởng thức thành quả.
+                </div>
+                <div class="wish-item">
+                    <strong>☕ Cafe và chuyện trò:</strong> Ngồi trong quán cafe yêu thích, nhâm nhi đồ uống, nói chuyện về mọi thứ từ những chuyện nhỏ nhặt đến những ước mơ lớn lao.
+                </div>
+                <div class="wish-item">
+                    <strong>🎬 Xem phim bên nhau:</strong> Ôm em trong rạp phim tối, không quan trọng phim gì, chỉ cần được cảm nhận hơi thở của em bên cạnh.
+                </div>
+                <div class="wish-item">
+                    <strong>🌃 Khám phá thành phố đêm:</strong> Cùng nhau lạc bước trên những con phố đêm, tìm những góc phố đẹp, và tạo nên những kỷ niệm không bao giờ quên.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💝 Lời Hứa Của Anh</h2>
+            <div class="love-story">
+                <p><strong>Anh hứa với em:</strong></p>
+                <p>✨ Dù phải đợi bao lâu, anh vẫn sẽ kiên nhẫn chờ em</p>
+                <p>✨ Mỗi ngày, anh sẽ yêu em nhiều hơn ngày hôm qua</p>
+                <p>✨ Khi gặp nhau, anh sẽ bù đắp cho em tất cả những gì em đã chờ đợi</p>
+                <p>✨ Anh sẽ biến những ước mơ của chúng ta thành hiện thực</p>
+                <p>✨ Anh sẽ luôn ở đây, bên em, trong mọi khoảnh khắc của cuộc đời</p>
+                <br>
+                <p style="text-align: center; font-size: 1.2em; color: #ffd93d;">
+                    <strong>Em ơi, dù trăng có tròn hay khuyết, trái tim anh dành cho em luôn tròn đầy yêu thương. 
+                    Anh yêu em vô cùng! ❤️</strong>
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0; padding: 20px;">
+            <button onclick="sendLove()">💌 Gửi Yêu Thương Đến Em</button>
+        </div>
+    </div>
 
   <script src="script.js" ></script>
 
